@@ -13,7 +13,7 @@ db.sequelize.sync();
 //   console.log("Drop and re-sync db.");
 // });
 
-let port = 8080;
+let port = process.env.PORT || 5000;
 app.listen(port, () => {
   console.log(`Running at localhost:${port}`);
 });
