@@ -23,20 +23,20 @@ const upload = async (req, res) => {
         tutorials.push(row);
       })
       .on("end", () => {
-        console.log(tutorials);
-        // Tutorial.bulkCreate(tutorials)
-        //   .then(() => {
-        //     res.status(200).send({
-        //       message:
-        //         "Uploaded the file successfully: " + req.file.originalname,
-        //     });
-        //   })
-        //   .catch((error) => {
-        //     res.status(500).send({
-        //       message: "Fail to import data into database!",
-        //       error: error.message,
-        //     });
-        //   });
+        // console.log(tutorials);
+        Tutorial.bulkCreate(tutorials)
+          .then(() => {
+            res.status(200).send({
+              message:
+                "Uploaded the file successfully: " + req.file.originalname,
+            });
+          })
+          .catch((error) => {
+            res.status(500).send({
+              message: "Fail to import data into database!",
+              error: error.message,
+            });
+          });
       });
   } catch (error) {
     console.log(error);
