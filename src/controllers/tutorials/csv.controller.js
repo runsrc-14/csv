@@ -12,7 +12,7 @@ const upload = async (req, res) => {
     }
 
     let tutorials = [];
-    let path = __dirname + "/resources/static/assets/uploads/" + req.file.filename;
+    let path = __basedir + "/resources/static/assets/uploads/" + req.file.filename;
 
     fs.createReadStream(path)
       .pipe(csv.parse({ headers: true }))
