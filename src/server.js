@@ -3,7 +3,7 @@ const app = express();
 const db = require("./models");
 const initRoutes = require("./routes/tutorial.routes");
 
-global.__basedir = __dirname + "/..";
+global.__basedir = __dirname + "/";
 
 app.use(express.urlencoded({ extended: true }));
 initRoutes(app);
